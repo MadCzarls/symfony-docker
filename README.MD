@@ -8,7 +8,7 @@ By default should be available under `http://localhost:8050/`.
 
 #TODO
 1. xdebug
-1. opcache
+2. sniffer php-cs
 
 All php extensions can be installed via `docker-php-ext-install` command. Examples:
 https://gist.github.com/giansalex/2776a4206666d940d014792ab4700d80
