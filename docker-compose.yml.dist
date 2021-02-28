@@ -27,6 +27,7 @@ services:
             network: host
             args:
                 ENV: dev # change according to your needs
+                TIMEZONE: Europe/Warsaw # change according to your needs
         container_name: 'app.php'
         expose:
             - '9000'
