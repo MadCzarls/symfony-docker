@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TestController extends AbstractController
+class AppController extends AbstractController
 {
     #[Route('/', name: 'home')]
     public function index(): Response
@@ -18,7 +18,7 @@ class TestController extends AbstractController
 
         return $this->render(
             'test/index.html.twig',
-            ['controller_name' => 'TestController']
+            ['controller_name' => 'AppController']
         );
     }
 }
