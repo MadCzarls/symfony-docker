@@ -17,14 +17,19 @@ services:
             - app_network
 
     php:
-        build: docker/php
+        build:
+            context: docker/php
+            dockerfile: Dockerfile
+            network: host
+            args:
+                ENV: dev # change according to your needs
         container_name: 'app.php'
         expose:
             - '9000'
         restart: on-failure
         env_file:
-            - docker/php/.env.web
-            - docker/php/.env.app
+            - docker/php/.env.web.dev # change according to your needs
+            - docker/php/.env.app.dev # change according to your needs
         depends_on:
             - mysql
         volumes:
