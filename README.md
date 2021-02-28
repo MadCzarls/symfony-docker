@@ -47,7 +47,6 @@ Open directory including cloned repository as directory in PhpStorm.
 
 ### xdebug
 1. `Settings` -> `Languages & Frameworks` -> `PHP` -> `Debug: Xdebug` -> `Debug port`: `9003` (set by default) and check `Can accept external connections`.
-1. Add `PHP Remote Debug` configuration with name `debug_docker`, tick `Filter debug connections by IDE key` and set it to PHPStorm.
 1. Click `Start Listening for PHP Debug connections` -> `+` button, set breakpoints and refresh website.
 
 ### PHPCS
