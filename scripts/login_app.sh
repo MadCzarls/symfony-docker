@@ -1,1 +1,1 @@
-docker exec -it app.php bash
+docker exec -it app.php bash # @TODO move to ENV

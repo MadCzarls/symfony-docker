@@ -16,6 +16,9 @@ Clone and tweak it to your needs. Tested on:
 1. Docker version 20.10.3, build 48d30b5
 1. docker-compose version 1.28.4, build cabd5cfb
 
+# TODO
+1. scripts - move container name to ENV and used this name in scripts
+
 # Usage
 Clone repository, `cd` inside, create `docker-compose.yml` based on `docker-compose.yml.dist` (take into account comments inside) and run:
 <pre>
@@ -39,12 +42,11 @@ Open directory including cloned repository as directory in PhpStorm.
 
 ### Interpreter
 1. `Settings` -> `Languages & Frameworks` -> `PHP` -> `Servers`: create server with name `docker` (the same as in ENV variable `PHP_IDE_CONFIG`), host `localhost`, port `8050` (default from docker-compose.yml.dist).
+1. Tick `Use path mappings` ->  to `File directory` <-> Absolute path on server as: `</absolute/path/symfony-docker/app` <-> `/var/www/app` (default from docker-compose.yml.dist).
 1. `Settings` -> `Languages & Frameworks` -> `PHP`: three dots next to the field `CLI interpreter` -> `+` button -> `From DOcker, Vagrant(...)` -> from `docker-compose`, from service `php`, server `Docker`, configuration files `./docker-compose`. After creating in `Lifecycle` section ensure to pick `Always start a new container (...)`, in `General` refresh interpreter data.
 
 ### xdebug
 1. `Settings` -> `Languages & Frameworks` -> `PHP` -> `Debug: Xdebug` -> `Debug port`: `9003` (set by default) and check `Can accept external connections`.
-1. `Settings` -> `Languages & Frameworks` -> `PHP`: add `path mappings` to `File directory` <-> Absolute path on server as: `</absolute/path/symfony-docker/app` <-> `/var/www/app` 
-   (default from docker-compose.yml.dist).
 1. Add `PHP Remote Debug` configuration with name `debug_docker`, tick `Filter debug connections by IDE key` and set it to PHPStorm.
 1. Click `Start Listening for PHP Debug connections` -> `+` button, set breakpoints and refresh website.
 
