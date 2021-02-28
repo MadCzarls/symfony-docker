@@ -1,4 +1,5 @@
 ARG ENV
+ARG TIMEZONE
 
 FROM php:8.0.2-fpm-buster
 RUN apt-get update
@@ -36,7 +37,8 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 RUN chmod +x /usr/local/bin/composer
 
-ENV TZ=Europe/Warsaw
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ARG TIMEZONE
+
+RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
 
 WORKDIR /var/www/app
