@@ -14,6 +14,7 @@
         "doctrine/orm": "^2.8",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",
+        "squizlabs/php_codesniffer": "*",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",
         "symfony/dotenv": "5.2.*",

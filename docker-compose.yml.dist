@@ -13,6 +13,8 @@ services:
             MYSQL_PASSWORD: app_pass
         volumes:
             - './bin/mysql/:/var/lib/mysql'
+        ports:
+            - '33306:3306'
         networks:
             - app_network
 
