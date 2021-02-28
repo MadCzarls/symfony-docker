@@ -13,7 +13,7 @@ class TestController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        $t  = 1;
+        $t = 1;
         $t2 = 2;
 
         return $this->render(
