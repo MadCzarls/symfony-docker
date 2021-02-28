@@ -1,5 +1,5 @@
 Repo for project template running on docker with nginx 1.19, + PHP 8.0 + MySQL 8.0.
-By default should be available under `http://localhost:8050/`.
+By default, should be available under `http://localhost:8050/`.
 
 #Requirements
 
@@ -16,7 +16,7 @@ All php extensions can be installed via `docker-php-ext-install` command. Exampl
 To enable xdebug:
 1. In PhpStorm: Settings -> Languages & Frameworks -> PHP -> Debug: Xdebug -> Debug port: 9003 (set by default) and check 'Can accept external connections'.
 1. In PhpStorm: Settings -> Languages & Frameworks -> PHP -> Servers: create server with name 'docker' (the same as in ENV variable PHP_IDE_CONFIG), host 'localhost', port '8050' (default from docker-compose.yml.dist).
-1. Add path mappings to File directory <-> Absolute path on server as: <\absolute\path\symfony-docker\app <-> /var/www/app 
+1. Add path mappings to File directory <-> Absolute path on server as: `</absolute/path/symfony-docker/app` <-> `/var/www/app` 
    (default from docker-compose.yml.dist).
 1. In PhpStorm: Start Listening for PHP Debug connections.
 

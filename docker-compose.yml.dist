@@ -28,9 +28,8 @@ services:
             - '9000'
         restart: on-failure
         env_file:
-            # change according to your needs
-            - docker/php/.env.web.dev
-            - docker/php/.env.app.dev
+            - docker/php/.env.web.dev # change according to your needs
+            - docker/php/.env.app.dev # change according to your needs
         depends_on:
             - mysql
         volumes:
