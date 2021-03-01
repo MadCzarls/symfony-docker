@@ -8,6 +8,7 @@ docker-compose.yml
 
 ###
 
+app/bin/.phpunit
 app/vendor
 app/var
 app/public_html/bundles/

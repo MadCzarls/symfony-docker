@@ -58,5 +58,10 @@ Open directory including cloned repository as directory in PhpStorm.
 ### MySQL
 Open `Database` section on the right bar of IDE -> `Data Source` -> `MySQL` -> set host to `localhost`, port to `33306`, user to `app_user`, pass `app_pass` (defaults from docker-compose.yml.dist).
 
+### PHPUnit
+1. Copy `phpunit.xml.dist` into `phpunit.xml`.
+1. Login into app.php and run `./bin/phpunit`.
+1. `Settings` -> `Languages & Frameworks` -> `PHP` -> `Test frameworks`. Click `+` and `PHPUnit by Remote Intepreter`. In `PHPUnit library` tick `Path to phpunit.phar` and type `bin/phpunit`. Click refresh icon. In `Test runner` section set `Default configuration file` to `phpunit.xml` and `Default bootstrap file` to `tests/bootstrap.php`.
+
 # Disclaimer
 Although there are present different files for `prod` and `dev` environments these are only stubs and this repo is not suitable to run on `prod` environment. The idea was to create as much integral, self-contained and flexible environment for `development` as possible and these files are here to easily mimic `prod` env and point out differences in configuration.
