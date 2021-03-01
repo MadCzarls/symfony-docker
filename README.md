@@ -17,7 +17,8 @@ Clone and tweak it to your needs. Tested on:
 1. docker-compose version 1.28.4, build cabd5cfb
 
 # TODO
-1. scripts - move container name to ENV and used this name in scripts
+1. scripts - move container name to ENV and use it in scripts;
+1. change based distros (eg. Ubuntu) for something more lightweight.
 
 # Usage
 Clone repository, `cd` inside, create `docker-compose.yml` based on `docker-compose.yml.dist` (take into account comments inside) and run:
@@ -50,9 +51,9 @@ Open directory including cloned repository as directory in PhpStorm.
 1. Click `Start Listening for PHP Debug connections` -> `+` button, set breakpoints and refresh website.
 
 ### PHPCS
+1. Copy `phpcs.xml.dist` and name it `phpcs.xml`. Tweak it to your needs.
 1. `Settings` -> `Languages & Frameworks` -> `PHP` -> `Quality Tools` -> `PHP_CodeSniffer` -> `Configuration`: three dots, pick interpreter and validate paths. By default, there should be correct path mappings and paths already set to `/var/www/app/vendor/bin/phpcs` and `/var/www/app/vendor/bin/phpcbf`.
-1. `Settings` -> `Editor` -> `Inspections` -> `PHP` -> `Quality tools` -> `PHP_CodeSniffer validation` -> tick `Show sniff name` -> pick coding standard to `Custom` -> three dots and type `/var/www/app/phpcs.xml`.
-1. Tweak app/phpcs.xml to your needs.
+1. `Settings` -> `Editor` -> `Inspections` -> `PHP` -> `Quality tools` -> tick `PHP_CodeSniffer validation` -> tick `Show sniff name` -> pick coding standard to `Custom` -> three dots and type `/var/www/app/phpcs.xml`.
 
 ### MySQL
 Open `Database` section on the right bar of IDE -> `Data Source` -> `MySQL` -> set host to `localhost`, port to `33306`, user to `app_user`, pass `app_pass` (defaults from docker-compose.yml.dist).
