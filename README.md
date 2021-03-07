@@ -27,7 +27,7 @@ docker-compose build
 docker-compose up
 </pre>
 
-Then login into container with script `scripts/login_php` and run:
+Then login into container with script `scripts/login_php.sh` (*works only for linux*) and run:
 <pre>
 composer install
 </pre>

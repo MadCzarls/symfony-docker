@@ -12,8 +12,14 @@ app/bin/.phpunit
 app/vendor
 app/var
 app/public_html/bundles/
-app/.env.*
+app/.env
+!app/.env.*
 
 app/.phpunit
 app/.phpunit.result.cache
 app/phpunit.xml
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
