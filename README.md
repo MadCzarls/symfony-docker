@@ -84,4 +84,4 @@ Open `Database` section on the right bar of IDE -> `Data Source` -> `MySQL` -> s
 
 # Disclaimer
 
-Although there are present different files for `prod` and `dev` environments these are only stubs and this repo is not suitable to run on `prod` environment. The idea was to create as much integral, self-contained and flexible environment for `development` as possible and these files are here to easily mimic `prod` env and point out differences in configuration.
+Although there are present different files for `prod` and `dev` environments these are only stubs and this repo is not suitable to run on `prod` environment. The idea was to create as much integral, self-contained and flexible environment for `development` as possible and these files are here merely to easily mimic `prod` env and point out differences in configuration.
