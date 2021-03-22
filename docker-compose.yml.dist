@@ -1,7 +1,7 @@
 version:  '3.8'
 
 services:
-    mysql:
+    db:
         image: mysql:8.0
         container_name: 'app.db'
         restart: on-failure
@@ -36,7 +36,7 @@ services:
             - docker/php/.env.web.dev # change according to your needs
             - docker/php/.env.app.dev # change according to your needs
         depends_on:
-            - mysql
+            - db
         volumes:
             - './app/:/var/www/app:cached'
         networks:
@@ -47,7 +47,7 @@ services:
         container_name: 'app.nginx'
         restart: on-failure
         depends_on:
-            - mysql
+            - db
             - php
         volumes:
             - './app/:/var/www/app:cached'
