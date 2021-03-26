@@ -16,7 +16,7 @@ RUN apt-get install -y \
 RUN docker-php-ext-install \
     zip \
     intl \
-    mysqli \
+    pdo_mysql \
     opcache
 
 COPY config/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
