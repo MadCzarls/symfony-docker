@@ -35,6 +35,8 @@ services:
         env_file:
             - docker/php/.env.web.dev # change according to your needs
             - docker/php/.env.app.dev # change according to your needs
+            - docker/blackfire/.env.client
+            - docker/blackfire/.env.server
         depends_on:
             - db
         volumes:
@@ -54,6 +56,15 @@ services:
             - './logs/nginx:/var/log/nginx'
         ports:
             - '8050:80'
+        networks:
+            - app_network
+
+    blackfire:
+        image: blackfire/blackfire
+        container_name: 'app.blackfire'
+        ports: ["8707"]
+        env_file:
+            - docker/blackfire/.env.server
         networks:
             - app_network
 
