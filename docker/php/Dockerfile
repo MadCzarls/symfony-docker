@@ -11,7 +11,16 @@ RUN apt-get install -y \
     zlib1g-dev \
     libxml2-dev \
     libzip-dev \
-    unzip
+    unzip \
+    wget \
+    gnupg2
+
+# wget and gnupg2 needed by Blackfire
+
+# Install Blackfire CLI tool and PHP Probe
+RUN wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add -
+RUN echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list
+RUN apt-get update && apt-get install -y blackfire-agent blackfire-php
 
 RUN docker-php-ext-install \
     zip \
