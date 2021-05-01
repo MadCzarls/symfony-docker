@@ -80,7 +80,7 @@ Open `Database` section on the right bar of IDE -> `Data Source` -> `MySQL` -> s
 ### PHPUnit
 
 1. Copy `phpunit.xml.dist` into `phpunit.xml`.
-1. Login into `mint_2.php` container and run `./bin/phpunit`.
+1. Login into `app.php` container and run `./bin/phpunit`.
 1. `Settings` -> `Languages & Frameworks` -> `PHP` -> `Test frameworks`. Click `+` and `PHPUnit by Remote Intepreter` -> pick interpreter. In `PHPUnit library` tick `Path to phpunit.phar` and type `bin/phpunit`. Click refresh icon. In `Test runner` section set `Default configuration file` to `phpunit.xml` and `Default bootstrap file` to `tests/bootstrap.php`.
 
 # Disclaimer
