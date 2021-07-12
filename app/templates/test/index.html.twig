@@ -9,7 +9,12 @@
 </style>
 
 <div class="example-wrapper">
+
+    <a href="{{ path('movies_list') }}">To movie list</a>
     <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {{ testVar }}! ✅</h1>
+
+    {% include('test/_form.html.twig') %}
 
     This friendly message is coming from:
     <ul>

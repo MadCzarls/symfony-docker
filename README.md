@@ -1,5 +1,7 @@
 # Description
 
+Code-along with https://symfonycasts.com/screencast/phpstorm and testing PHPStorm features.
+
 Symfony 5 project template running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.19 + MySQL 8.0. By default includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm. Also have Blackfire tool integrated [WIP]. 
 
 - https://symfony.com/
@@ -86,14 +88,3 @@ Open `Database` section on the right bar of IDE -> `Data Source` -> `MySQL` -> s
 # Disclaimer
 
 Although there are present different files for `prod` and `dev` environments these are only stubs and this repo is not suitable to run on `prod` environment. The idea was to create as much integral, self-contained and flexible environment for `development` as possible and these files are here merely to easily mimic `prod` env and point out differences in configuration.
-
-# Blackfire [WIP]
-After starting containers blackfire-agent service is not started in main app.php container. In that case run:
-1. `docker exec -it app.php bash`
-1. `/etc/init.d/blackfire-agent restart`
-
-@TODO debug ^.
-
-Remember to install extension for Blackfire to your browser of choice.
-
-Test Blackfire integration, `prod` including; add flag to control Blackfire installation?
