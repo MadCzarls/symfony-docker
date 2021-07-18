@@ -3,7 +3,7 @@
 ###
 
 logs/*
-bin/.phpunit
+bin/*
 docker-compose.yml
 
 ###
