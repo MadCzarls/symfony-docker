@@ -1,7 +1,7 @@
 ARG ENV
 ARG TIMEZONE
 
-FROM php:8.0.5-fpm-buster
+FROM php:8.0.8-fpm-buster
 RUN apt-get update
 RUN apt-get install -y \
     apt-utils \
@@ -18,7 +18,7 @@ COPY config/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 ARG ENV
 
 RUN if [ "$ENV" = "dev" ] ; then \
-        pecl install xdebug-3.0.3 && \
+        pecl install xdebug-3.0.4 && \
         docker-php-ext-enable xdebug  \
     ; fi
 
