@@ -1,0 +1,65 @@
+version:  '3.8'
+
+services:
+    db:
+        image: mysql:8.0
+        container_name: 'app.db'
+        restart: on-failure
+        command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--default-authentication-plugin=mysql_native_password']
+        cap_add:
+            - SYS_NICE
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: app
+            MYSQL_USER: app_user
+            MYSQL_PASSWORD: app_pass
+        volumes:
+            - './bin/mysql/:/var/lib/mysql'
+        ports:
+            - '33306:3306'
+        networks:
+            - app_network
+
+    php:
+        build:
+            context: docker/php
+            dockerfile: Dockerfile
+            network: host
+            args:
+                ENV: dev # change according to your needs
+                TIMEZONE: Europe/Warsaw # change according to your needs
+        container_name: 'app.php'
+        expose:
+            - '9000'
+        restart: on-failure
+        env_file:
+            - docker/php/.env.web.dev # change according to your needs
+            - docker/php/.env.app.dev # change according to your needs
+        depends_on:
+            - db
+        volumes:
+            - './app/:/var/www/app:cached'
+        networks:
+            - app_network
+
+    nginx:
+        build: docker/nginx
+        container_name: 'app.nginx'
+        restart: on-failure
+        depends_on:
+            - db
+            - php
+        volumes:
+            - './app/:/var/www/app:cached'
+            - './logs/nginx:/var/log/nginx'
+        ports:
+            - '8050:80'
+        networks:
+            - app_network
+
+networks:
+    app_network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.19.57.0/24
