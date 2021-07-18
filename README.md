@@ -2,7 +2,7 @@
 
 Code-along with https://symfonycasts.com/screencast/phpstorm and testing PHPStorm features.
 
-Symfony 5 project template running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.19 + MySQL 8.0. By default includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm. Also have Blackfire tool integrated [WIP]. 
+Symfony 5 project template running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.19 + MySQL 8.0. By default includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm. 
 
 - https://symfony.com/
 - https://www.docker.com/

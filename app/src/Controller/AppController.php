@@ -15,6 +15,12 @@ class AppController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(EntityManagerInterface $entityManager): Response
     {
+
+        var_dump();
+        die;
+
+        
+        
         $movie = new Movie();
 
         return $this->render(
