@@ -11,9 +11,16 @@ RUN apt-get install -y \
     zlib1g-dev \
     libxml2-dev \
     libzip-dev \
-    unzip
+    unzip \
+    postgresql-server-dev-11
 
 COPY config/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+RUN docker-php-ext-install \
+    intl \
+    pdo_pgsql \
+    zip \
+    opcache
 
 ARG ENV
 
