@@ -18,6 +18,22 @@ services:
         networks:
             - app_network
 
+    test-db:
+        image: postgres:11.12-alpine
+        container_name: 'app.test-db'
+        restart: on-failure
+        cap_add:
+            - SYS_NICE
+        environment:
+            POSTGRES_DB: app
+            POSTGRES_USER: app_user
+            POSTGRES_PASSWORD: app_pass
+        # volumes are not really needed in test db
+        ports:
+            - '8070:5432' # notice different OUT port than in default database
+        networks:
+            - app_network
+
     php:
         build:
             context: docker/php
