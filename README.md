@@ -41,6 +41,19 @@ composer install
 
 From this point forward, application should be available under `http://localhost:8050/`, where port `8050` is default defined in `docker-compose.yml.dist`.
 
+### Running tests
+
+Environment variable `APP_ENV` must be set to `test` to be able to run Kernel-/Web-TestCases based tests because
+`Real environment variables win over .env files` and this is the case in docker-based environments.
+
+### Specific case concerning test-driven development :
+
+Solution implemented in https://symfony.com/blog/new-in-symfony-4-1-simpler-service-testing lets you test
+only services which are used in application, eg. injected in controller - otherwise they will be removed from container,
+even in `test` environment. To overcome this and be able to test services not-yet used file `config/services_test.yaml`
+should be created. But the disadvantage of this is that all services' definitions from `config/services.yaml` must be
+duplicated to `services_test.yaml` as well but including setting `_defaults.public` config to `true`.
+
 # Overview
 
 All PHP extensions can be installed via `docker-php-ext-install` command in docker/php/Dockerfile. Examples and usage:
