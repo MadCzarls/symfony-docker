@@ -1,6 +1,6 @@
 # Description
 
-Symfony 5 project template running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.18 + PostgreSQL 11. By default includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm.
+Symfony 5 project template running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.18 + PostgreSQL 11. By default, includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm.
 
 - https://symfony.com/
 - https://www.docker.com/
