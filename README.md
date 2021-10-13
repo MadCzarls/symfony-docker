@@ -1,17 +1,10 @@
 # Description
 
-Symfony 5 project template running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.18 + PostgreSQL 11. By default, includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm.
-
-- https://symfony.com/
-- https://www.docker.com/
-- https://docs.docker.com/compose/
-- https://www.php.net/
-- https://www.nginx.com/
-- https://www.postgresql.org/
-- https://xdebug.org/
-- https://github.com/squizlabs/PHP_CodeSniffer
-- https://www.php.net/manual/en/intro.opcache.php
-- https://www.jetbrains.com/phpstorm/
+Symfony 5 project templates for different architectures, running on Docker (utilizing docker-compose) with PHP 8.0 + nginx 1.18 + PostgreSQL 11. By default, includes xdebug extension and PHP_CodeSniffer for easy development and basic configuration for opcache for production. Includes instruction for setting it in PhpStorm.
+It contains branches with skeletons for:
+- Symfony default file-structure: `master`
+- Symfony bare skeleton project `skeleton`
+- Domain-Driven Design `skeleton-ddd`
 
 Clone and tweak it to your needs. Tested on Linux (Ubuntu 20.04):
 
@@ -99,3 +92,15 @@ Open `Database` section on the right bar of IDE -> `Data Source` -> `PostgreSQL`
 # Disclaimer
 
 Although there are present different files for `prod` and `dev` environments these are only stubs and this repo is not suitable to run on `prod` environment. The idea was to create as much integral, self-contained and flexible environment for `development` as possible and these files are here merely to easily mimic `prod` env and point out differences in configuration.
+
+# Links
+- https://symfony.com/
+- https://www.docker.com/
+- https://docs.docker.com/compose/
+- https://www.php.net/
+- https://www.nginx.com/
+- https://www.postgresql.org/
+- https://xdebug.org/
+- https://github.com/squizlabs/PHP_CodeSniffer
+- https://www.php.net/manual/en/intro.opcache.php
+- https://www.jetbrains.com/phpstorm/
