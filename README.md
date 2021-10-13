@@ -15,7 +15,7 @@ Symfony 5 project template running on Docker (utilizing docker-compose) with PHP
 
 Clone and tweak it to your needs. Tested on Linux (Ubuntu 20.04):
 
-1. Docker version 20.10.7, build f0df350
+1. Docker version 20.10.9, build 79ea9d3
 1. docker-compose version 1.29.2, build 5becea4c
 
 and Windows 10:
@@ -26,20 +26,25 @@ and Windows 10:
 
 # Usage
 
-Clone repository, `cd` inside, create `docker-compose.yml` based on `docker-compose.yml.dist` with `cp docker-compose.yml.dist docker-compose.yml` command. If needed, change configuration according to the comments inside. Then define your `APP_SECRET` in the correct file based on your ENV (`docker/php/.env.app.[dev/prod]`). You can change PHP memory limit in `docker/php/config/docker-php-memlimit.init` file if you want. Afterwards run:
+1. Clone repository, `cd` inside.
+1. Create `.env` file in `docker/php` directory according to your environment, one of - `dev`, `test`, `prod` - just copy correct template `.env.dist`, but remember to define your own `APP_SECRET`!
+1. Review `docker-compose.yml` and change according to the comments inside. 
+1. You can change PHP memory limit in `docker/php/config/docker-php-memlimit.init` file if you want.
+
+Afterwards run:
 
 <pre>
 docker-compose build
 docker-compose up
 </pre>
 
-After that log into container with `docker exec -it app.php bash`, where `app.php` is the default container name from `docker-compose.yml.dist`. Then run:
+After that log into container with `docker exec -it symfony.php bash`, where `symfony.php` is the default container name from `docker-compose.yml`. Then run:
 
 <pre>
 composer install
 </pre>
 
-From this point forward, application should be available under `http://localhost:8050/`, where port `8050` is default defined in `docker-compose.yml.dist`.
+From this point forward, application should be available under `http://localhost:8050/`, where port `8050` is default defined in `docker-compose.yml`.
 
 ### Running tests
 
@@ -66,8 +71,8 @@ Open directory including cloned repository as directory in PhpStorm.
 
 ### Interpreter
 
-1. `Settings` -> `PHP` -> `Servers`: create server with name `docker` (the same as in ENV variable `PHP_IDE_CONFIG`), host `localhost`, port `8050` (default from `docker-compose.yml.dist`).
-1. Tick `Use path mappings` -> set `File/Directory` <-> `Absolute path on the server` as: `</absolute/path>/symfony-docker/app` <-> `/var/www/app` (default from docker-compose.yml.dist).
+1. `Settings` -> `PHP` -> `Servers`: create server with name `docker` (the same as in ENV variable `PHP_IDE_CONFIG`), host `localhost`, port `8050` (default from `docker-compose.yml`).
+1. Tick `Use path mappings` -> set `File/Directory` <-> `Absolute path on the server` as: `</absolute/path>/symfony-docker/app` <-> `/var/www/app` (default from docker-compose.yml).
 1. `Settings` -> `PHP`: three dots next to the field `CLI interpreter` -> `+` button -> `From Docker, Vagrant(...)` -> from `docker-compose`, from service `php`, server `Docker`, configuration files `./docker-compose`. After creating in `Lifecycle` section ensure to pick `Always start a new container (...)`, in `General` refresh interpreter data.
 
 ### xdebug
@@ -83,12 +88,12 @@ Open directory including cloned repository as directory in PhpStorm.
 
 ### PostgreSQL
 
-Open `Database` section on the right bar of IDE -> `Data Source` -> `PostgreSQL` -> set host to `localhost`, set user to `app_user`, pass `app_pass`, database to `app` (defaults from docker-compose.yml.dist) Set url to `jdbc:postgresql://localhost:5432/app`.
+Open `Database` section on the right bar of IDE -> `Data Source` -> `PostgreSQL` -> set host to `localhost`, set user to `app_user`, pass `app_pass`, database to `app` (defaults from docker-compose.yml) Set url to `jdbc:postgresql://localhost:5432/app`.
 
 ### PHPUnit
 
 1. Copy `phpunit.xml.dist` into `phpunit.xml`.
-1. Login into `app.php` container where `app.php` is the default container name from `docker-compose.yml.dist`, and run `./bin/phpunit`.
+1. Login into `symfony.php` container where `symfony.php` is the default container name from `docker-compose.yml`, and run `./bin/phpunit`.
 1. `Settings` -> `PHP` -> `Test frameworks`. Click `+` and `PHPUnit by Remote Intepreter` -> pick interpreter. In `PHPUnit library` tick `Path to phpunit.phar` and type `bin/phpunit`. Click refresh icon. In `Test runner` section set `Default configuration file` to `phpunit.xml` and `Default bootstrap file` to `tests/bootstrap.php`.
 
 # Disclaimer

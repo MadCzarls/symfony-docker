@@ -3,7 +3,7 @@ version:  '3.9'
 services:
     db:
         image: postgres:11.12-alpine
-        container_name: 'app.db'
+        container_name: 'symfony.db'
         restart: on-failure
         cap_add:
             - SYS_NICE
@@ -20,7 +20,7 @@ services:
 
     test-db:
         image: postgres:11.12-alpine
-        container_name: 'app.test-db'
+        container_name: 'symfony.test-db'
         restart: on-failure
         cap_add:
             - SYS_NICE
@@ -28,7 +28,7 @@ services:
             POSTGRES_DB: app
             POSTGRES_USER: app_user
             POSTGRES_PASSWORD: app_pass
-        # volumes are not really needed in test db
+        # volumes are not persisted in test db
         ports:
             - '8070:5432' # notice different OUT port than in default database
         networks:
@@ -40,15 +40,14 @@ services:
             dockerfile: Dockerfile
             network: host
             args:
-                ENV: dev # change according to your needs
+                ENV: dev # choose environment (dev/test/prod)
                 TIMEZONE: Europe/Warsaw # change according to your needs
-        container_name: 'app.php'
+        container_name: 'symfony.php'
         expose:
             - '9000'
         restart: on-failure
         env_file:
-            - docker/php/.env.web.dev # change according to your needs
-            - docker/php/.env.app.dev # change according to your needs
+            - docker/php/.env # ! create this file ! - choose environment (dev/test/prod) and copy correct template .dist file
         depends_on:
             - db
         volumes:
@@ -58,7 +57,7 @@ services:
 
     nginx:
         build: docker/nginx
-        container_name: 'app.nginx'
+        container_name: 'symfony.nginx'
         restart: on-failure
         depends_on:
             - db
@@ -76,4 +75,4 @@ networks:
         driver: bridge
         ipam:
             config:
-                - subnet: 172.19.57.0/24
+                - subnet: 172.24.57.0/24
