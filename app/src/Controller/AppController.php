@@ -19,9 +19,6 @@ class AppController extends AbstractController
         $t = 1;
         $t2 = 2;
 
-        return $this->render(
-            'test/index.html.twig',
-            ['controller_name' => 'AppController']
-        );
+        return new Response('Welcome! Your app is up!');
     }
 }
