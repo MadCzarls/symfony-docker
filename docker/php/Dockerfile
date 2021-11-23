@@ -44,3 +44,5 @@ ARG TIMEZONE
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
 
 WORKDIR /var/www/app
+
+RUN usermod -u 1000 www-data
