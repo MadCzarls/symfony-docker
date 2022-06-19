@@ -4,7 +4,7 @@ Symfony 5 project templates for different architectures, running on Docker (util
 It contains branches with skeletons for:
 - Symfony default file-structure: `master`
 - Symfony bare skeleton project `skeleton`
-- Domain-Driven Design `skeleton-ddd`
+- Domain-Driven Design `skeleton-ddd` `WIP`
 
 Clone and tweak it to your needs. Tested on Linux (Ubuntu 20.04):
 
